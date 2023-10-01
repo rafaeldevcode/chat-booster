@@ -2,7 +2,7 @@
     "name": "rafaeldevcode/chat-booster",
     "version": "1.0.0",
     "description": "Description",
-    "type": "composer-plugin",
+    "type": "library",
     "license": "MIT",
     "keywords": ["chat", "php"],
     "autoload": {
