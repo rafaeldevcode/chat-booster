@@ -1,0 +1,24 @@
+{
+    "name": "rafaeldevcode/chat-booster",
+    "version": "1.0.0",
+    "description": "Description",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "keywords": ["chat", "php"],
+    "autoload": {
+        "psr-4": {
+            "ChatBooster\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rafael Vieira",
+            "email": "rafaeldevcode@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.0",
+        "vlucas/phpdotenv": "^5.4"
+    }
+}
