@@ -8,7 +8,15 @@
 :root{
     --color-main: #25D366;
 }
-
+/* Chat buttons */
+.chat-buttons{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+.chat-buttons button{
+    margin: 1rem;
+}
 /* Chat container */
 .chat-container{
     position: fixed;
@@ -20,15 +28,12 @@
     height: 550px;
     margin: 1rem;
     border-radius: 5px;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
 }
 /* Chat button open box */
 .chat-open-box{
-    position: absolute;
-    right: 0;
-    top: -65px;
     width: 60px;
     height: 60px;
     border-radius: 100%;
@@ -52,6 +57,12 @@
     display: flex;
     align-items: center;
 }
+.chat-user-photo-setting{
+    background: #ffffff;
+    padding: .5rem;
+    border-radius: 100%;
+    color: #545454;
+}
 .chat-user-photo img{
     width: 40px;
     height: 40px;
@@ -73,7 +84,7 @@
 /* Chat main */
 .chat-main{
     background-color: #ffffff;
-    background-image: url("/panel/public/assets/images/whatsapp_bg.jpg");
+    background-image: url(../images/whatsapp_bg.jpg);
     background-size: cover;
     width: 100%;
     height: 430px;
@@ -196,3 +207,120 @@
 .chat-form .chat-form-attach-more button:last-child{
     transform: translateX(-100%);
 } */
+/* ANIMATIONS */
+/* Open box animation */
+[data-message-box="true"]{
+    display: flex !important;
+}
+[data-message-box="true"],
+[data-message-box="true"] .chat-header,
+[data-message-box="true"] .chat-main,
+[data-message-box="true"] .chat-footer
+{
+    animation: openBox .6s linear forwards;
+}
+@keyframes openBox{
+    0%{
+        opacity: 0;
+        transform: rotateX(90deg) translateY(100%);
+    }
+    100%{
+        opacity: 1;
+        transform: rotateX(0) translateY(0);
+    }
+}
+/* Close box animation */
+[data-message-box="false"]{
+    display: flex !important;
+}
+[data-message-box="false"],
+[data-message-box="false"] .chat-header,
+[data-message-box="false"] .chat-main,
+[data-message-box="false"] .chat-footer
+{
+    animation: openBoxReverse .6s linear forwards;
+}
+@keyframes openBoxReverse{
+    0%{
+        opacity: 1;
+        transform: rotateX(0) translateY(0);
+    }
+    100%{
+        opacity: 0;
+        transform: rotateX(90deg) translateY(100%);
+    }
+}
+/* More actions active */
+[data-more-actions="true"]{
+    display: flex !important;
+    animation: moreActions .5s linear forwards;
+}
+[data-more-actions="true"] button:first-child{
+    animation: moreActionsTransFirst .5s linear forwards;
+}
+[data-more-actions="true"] button:last-child{
+    animation: moreActionsTransLast .5s linear forwards;
+}
+@keyframes moreActions{
+    0%{
+        opacity: 0;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(-60px);
+    }
+}
+@keyframes moreActionsTransFirst{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes moreActionsTransLast{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+/* More actions inactive */
+[data-more-actions="false"]{
+    display: flex !important;
+    animation: moreActionsReverse .5s linear  forwards;
+}
+[data-more-actions="false"] button:first-child{
+    animation: moreActionsTransFirstReverse .5s linear  forwards;
+}
+[data-more-actions="false"] button:last-child{
+    animation: moreActionsTransLastReverse .5s linear  forwards;
+}
+@keyframes moreActionsReverse{
+    0%{
+        opacity: 1;
+        transform: translateY(-60px);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(0);
+    }
+}
+@keyframes moreActionsTransFirstReverse{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+@keyframes moreActionsTransLastReverse{
+    0%{
+        transform: translateX(-0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
